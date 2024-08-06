@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 5%;
+    background: linear-gradient(to left top, #031A9A, #8B53FF);
+}
+
+.container {
+    width: 100%;
+    position: relative;
+}
+
+.container i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    background-color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+    cursor: pointer;
+}
+
+.container .prev {
+    left: -1rem;
+}
+
+.container .next {
+    right: -1rem;
+}
+
+.container .carousel {
+    display: flex;
+    gap: 1rem;
+
+    /* For smooth behaviour when scrolling */
+    scroll-behavior: smooth;
+
+    /* centre  the card when scrolling */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: 0;
+}
+
+/* centre  the card when scrolling */
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel :where(.card, .img) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel .card {
+    flex: 0 0 calc((100% / 4) - 0.72rem);
+    flex-direction: column;
+    gap: 1rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    padding: 1rem;
+
+    /* centre  the card when scrolling */
+    scroll-snap-align: start;
+}
+
+.card .img {
+    background-color: #8B53FF;
+    width: 10.5rem;
+    height: 10.5rem;
+    border-radius: 50%;
+}
+
+.card .img img {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 0.25rem solid #fff;
+}
+
+.information p {
+    padding-bottom: 0.5rem;
+}
+
+@media screen and (max-width : 950px) {
+    .carousel .card {
+        flex-basis: calc((100% / 3) - 0.66rem);
+    }
+}
+
+@media screen and (max-width : 750px) {
+    .carousel .card {
+        flex-basis:  calc((100% / 2) - 0.48rem);
+    }
+}
+
+@media screen and (max-width : 500px) {
+    .carousel .card {
+        flex-basis:  100%;
+    }
+}
