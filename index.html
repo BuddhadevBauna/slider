@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/carousel.css">
     <title>Carousel</title>
-    <link rel="stylesheet" href="index.css">
 </head>
+
 <body>
-    <div class="container">
-        <i class="prev"><</i>
+    <nav class="nav-container">
+        <h2 class="brand">Carousel</h2>
+        <ul class="nav-list">
+            <li class="list-item">buttonClickCarousel</li>
+            <li class="list-item">infiniteCarousel</li>
+            <li class="list-item">finiteCarousel</li>
+            <li class="list-item">autoCarousel</li>
+        </ul>
+    </nav>
+    <div class="carousel-container">
+        <i id="prev" class="fa-solid fa-angle-left"></i>
         <ul class="carousel">
-            <li class="card">
+            <li class="card original">
                 <div class="img">
                     <img src="./images/flower1.jpeg" alt="flower1-img">
                 </div>
@@ -19,7 +35,7 @@
                     <p>Information About Flower</p>
                 </div>
             </li>
-            <li class="card">
+            <li class="card original">
                 <div class="img">
                     <img src="./images/flower2.jpeg" alt="flower2-img">
                 </div>
@@ -28,7 +44,7 @@
                     <p>Information About Flower</p>
                 </div>
             </li>
-            <li class="card">
+            <li class="card original">
                 <div class="img">
                     <img src="./images/flower3.jpeg" alt="flower3-img">
                 </div>
@@ -37,7 +53,7 @@
                     <p>Information About Flower</p>
                 </div>
             </li>
-            <li class="card">
+            <li class="card original">
                 <div class="img">
                     <img src="./images/flower4.jpeg" alt="flower4-img">
                 </div>
@@ -46,7 +62,7 @@
                     <p>Information About Flower</p>
                 </div>
             </li>
-            <li class="card">
+            <li class="card original">
                 <div class="img">
                     <img src="./images/flower5.jpeg" alt="flower5-img">
                 </div>
@@ -55,7 +71,7 @@
                     <p>Information About Flower</p>
                 </div>
             </li>
-            <li class="card">
+            <li class="card original">
                 <div class="img">
                     <img src="./images/flower6.jpeg" alt="flower6-img">
                 </div>
@@ -64,7 +80,7 @@
                     <p>Information About Flower</p>
                 </div>
             </li>
-            <li class="card">
+            <li class="card original">
                 <div class="img">
                     <img src="./images/flower7.jpeg" alt="flower7-img">
                 </div>
@@ -73,7 +89,7 @@
                     <p>Information About Flower</p>
                 </div>
             </li>
-            <li class="card">
+            <li class="card original">
                 <div class="img">
                     <img src="./images/flower8.jpeg" alt="flower8-img">
                 </div>
@@ -82,7 +98,7 @@
                     <p>Information About Flower</p>
                 </div>
             </li>
-            <li class="card">
+            <li class="card original">
                 <div class="img">
                     <img src="./images/flower9.jpeg" alt="flower9-img">
                 </div>
@@ -91,7 +107,7 @@
                     <p>Information About Flower</p>
                 </div>
             </li>
-            <li class="card">
+            <li class="card original">
                 <div class="img">
                     <img src="./images/flower10.jpeg" alt="flower10-img">
                 </div>
@@ -101,8 +117,11 @@
                 </div>
             </li>
         </ul>
-        <i class="next">></i>
+        <i id="next" class="fa-solid fa-angle-right"></i>
     </div>
-    <script src="index.js"></script>
+    <script src="./javascript/clone-item.js"></script>
+    <script src="./javascript/infinite-scroll.js"></script>
+    <script src="./javascript/index.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,26 @@
+.nav-container {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.nav-container h2 {
+    font-size: 2rem;
+    font-family: "Crimson Text", serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.nav-container .nav-list {
+    display: flex;
+    gap: 1rem;
+    font-family: sans-serif;
+    font-size: 1rem;
+    font-weight: 100;
+}
+
+.nav-list li {
+    cursor: pointer;
+}
