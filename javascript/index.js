@@ -3,6 +3,7 @@ const carousel = document.querySelector('.carousel');
 const buttons = document.querySelectorAll('.carousel-container i');
 
 const cardWidth = carousel.querySelector('.card').offsetWidth;
+let intervalId;
 
 // Handle button click to slide the carousel
 const handleButtonClick = (event) => {
@@ -10,46 +11,88 @@ const handleButtonClick = (event) => {
 }
 
 // Function to add click listeners to buttons for manual sliding
-const buttonClickSlider = () => {
+const setupButtonSlider = () => {
     buttons.forEach((button) => {
         button.addEventListener('click', handleButtonClick);
     })
 }
 
 // Remove existing button listeners to prevent duplication
-const clearButtonListeners = () => {
+const removeButtonListeners = () => {
     buttons.forEach((button) => {
         button.removeEventListener('click', handleButtonClick);
     });
 }
 
-// Function for infinite slider setup
-const infiniteSlider = () => {
-    // Add button click listeners
-    buttonClickSlider();
-    // Clone items for infinite effect
-    clone();
-    // Setup infinite scroll logic
+const addScrollListener = () => {
     carousel.addEventListener('scroll', handleInfiniteScroll);
 }
 
-const cleareInfiniteScroll = () => {
+const removeScrollListener = () => {
     carousel.removeEventListener('scroll', handleInfiniteScroll);
 }
 
+// Function for infinite slider setup
+const setupInfiniteSlider = () => {
+    setupButtonSlider(); // Add button click listeners
+    cloneSlides(); // Clone slides for infinite effect
+    addScrollListener(); // Setup infinite scroll logic
+}
 
-buttonClickSlider();
+const autoPlay = () => {
+    intervalId = setInterval(() => {
+        carousel.scrollLeft += cardWidth;
+    }, 1000);
+}
+
+const stopAutoPlay = () => {
+    clearInterval(intervalId);
+}
+
+const addAutoPlayListeners = () => {
+    carousel.addEventListener('mouseenter', stopAutoPlay);
+    carousel.addEventListener('mouseleave', autoPlay);
+}
+
+const removeAutoPlayListeners = () => {
+    carousel.removeEventListener('mouseenter', stopAutoPlay);
+    carousel.removeEventListener('mouseleave', autoPlay);
+}
+
+const setupAutoSlider = () => {
+    buttons.forEach((button) => {
+        button.style.display = 'none'; // Hide buttons
+    })
+    cloneSlides(); // Clone Slides for infinite effect
+    autoPlay(); // Initial autoplay
+    addAutoPlayListeners(); // Add autoplay listeners
+    addScrollListener(); // For infinite scroll
+}
+
+const setupDefaultMenu = () => {
+    setupButtonSlider(); // Initial menu(when page load)
+}
+setupDefaultMenu();
+
 menuList.forEach((menu) => {
     menu.addEventListener('click', () => {
-        clearButtonListeners();
-        cleareInfiniteScroll();
-        clearClone();
+        removeButtonListeners();
+        removeScrollListener();
+        clearCloneSlides();
+        stopAutoPlay();
+        removeAutoPlayListeners();
+        buttons.forEach((button) => {
+            button.style.display = 'initial';
+        })
         switch (menu.textContent) {
             case "buttonClickCarousel":
-                buttonClickSlider();
+                setupButtonSlider();
                 break;
             case "infiniteCarousel":
-                infiniteSlider();
+                setupInfiniteSlider();
+                break;
+            case "autoCarousel":
+                setupAutoSlider();
                 break;
         }
     })

@@ -1,4 +1,4 @@
-const clone = () => {
+const cloneSlides = () => {
     const carouselChildrens = [...carousel.children];
     // console.log(carouselChildreen);
 
@@ -20,7 +20,7 @@ const clone = () => {
     })
 }
 
-const clearClone = () => {
+const clearCloneSlides = () => {
     const carouselChildrens = [...carousel.children];
     let cardPerView = Math.round(carousel.offsetWidth / cardWidth);
 
